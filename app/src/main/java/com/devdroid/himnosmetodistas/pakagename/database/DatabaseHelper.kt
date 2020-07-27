@@ -9,15 +9,13 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 class DatabaseHelper(context: Context): SQLiteAssetHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
 
-    fun selectAllHymns(): ArrayList<Hymn>{
-        val result = ArrayList<Hymn>()
-        val queryCursor = readableDatabase.query("tHymn", null, null, null, null, null, null)
-        while (queryCursor.moveToNext()){
-            result.add(Hymn(queryCursor.getInt(0), queryCursor.getInt(1),queryCursor.getString(2), queryCursor.getString(3)))
-        }
+    fun selectHymnById(id: Int): Hymn{
+        val queryCursor = readableDatabase.query("tHymn", null, "id = $id", null, null, null, null)
+        queryCursor.moveToFirst()
+        val hymn = Hymn(queryCursor.getInt(0), queryCursor.getInt(1), queryCursor.getString(2), queryCursor.getString(3), queryCursor.getString(4))
         queryCursor.close()
         close()
-        return result
+        return hymn
     }
 
     fun selectAllTitles(): ArrayList<HymnTitle>{

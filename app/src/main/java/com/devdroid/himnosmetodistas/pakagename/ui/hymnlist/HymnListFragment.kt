@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import com.devdroid.himnosmetodistas.pakagename.R
 import com.devdroid.himnosmetodistas.pakagename.adapters.HymnListRecyclerviewAdapter
 import com.devdroid.himnosmetodistas.pakagename.database.asynctasks.LoadHymnTitlesAsyncTask
@@ -12,6 +14,7 @@ import com.devdroid.himnosmetodistas.pakagename.listeners.GenericAsyncTaskListen
 import com.devdroid.himnosmetodistas.pakagename.listeners.RecyclerviewAdapterListener
 import com.devdroid.himnosmetodistas.pakagename.models.Hymn
 import com.devdroid.himnosmetodistas.pakagename.models.HymnTitle
+import com.devdroid.himnosmetodistas.pakagename.ui.hymndetails.HymnDetailsFragment
 import kotlinx.android.synthetic.main.hymn_list_fragment.*
 
 class HymnListFragment : Fragment(), GenericAsyncTaskListener<ArrayList<HymnTitle>>, RecyclerviewAdapterListener<HymnTitle> {
@@ -31,7 +34,12 @@ class HymnListFragment : Fragment(), GenericAsyncTaskListener<ArrayList<HymnTitl
     }
 
     override fun onClick(item: HymnTitle) {
-        TODO("Not yet implemented")
+        val bundle: Bundle = bundleOf(HymnDetailsFragment.ID_ARG to item.id)
+        parentFragmentManager
+            .beginTransaction()
+            .addToBackStack(null)
+            .replace(R.id.container, HymnDetailsFragment::class.java, bundle, null)
+            .commit()
     }
 
 

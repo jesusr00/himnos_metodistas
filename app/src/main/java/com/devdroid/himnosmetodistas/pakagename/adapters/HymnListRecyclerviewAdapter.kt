@@ -22,6 +22,7 @@ class HymnListRecyclerviewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val hymn = items[position]
+        holder.itemView.setOnClickListener { listener.onClick(hymn) }
         holder.itemView.hymnNum.text = hymn.num.toString()
         holder.itemView.hymnTitle.text = hymn.title
     }
