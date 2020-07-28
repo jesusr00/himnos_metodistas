@@ -1,15 +1,15 @@
-package com.devdroid.himnosmetodistas.pakagename.ui.hymndetails
+package com.devdroid.himnosmetodistas.pakagename.fragments
 
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.devdroid.himnosmetodistas.pakagename.R
 import com.devdroid.himnosmetodistas.pakagename.database.DatabaseHelper
-import com.devdroid.himnosmetodistas.pakagename.models.Hymn
+import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.hymn_details.*
 
 class HymnDetailsFragment: Fragment() {
@@ -32,17 +32,18 @@ class HymnDetailsFragment: Fragment() {
         context!!.apply {
             val db = DatabaseHelper(this)
             val hymn = db.selectHymnById(hymnId!!)
+            val fab = activity?.findViewById<FloatingActionButton>(R.id.fab)
+            val toolbarLayout = activity?.findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout)
 
-            hymnDetailNum.text = hymn.num.toString()
-            hymnDetailTitle.text = hymn.title
+            toolbarLayout?.title =hymn.num.toString() + " " + hymn.title
             hymnDetailText.text = hymn.text
             if (hymn.favorite == "true"){
-                rate.setImageResource(R.drawable.ic_yelow_star_24)
+                fab?.setImageResource(R.drawable.ic_yelow_star_24)
             }else{
-                rate.setImageResource(R.drawable.ic_white_star_24)
+                fab?.setImageResource(R.drawable.ic_white_star_24)
             }
 
-            rate.setOnClickListener {
+            fab?.setOnClickListener {
                 db.toggleIsHymnFavorite(hymn.id)
                 onViewCreated(requireView(), null)
             }
