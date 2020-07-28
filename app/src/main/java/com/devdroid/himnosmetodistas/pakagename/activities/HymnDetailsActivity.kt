@@ -3,7 +3,6 @@ package com.devdroid.himnosmetodistas.pakagename.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.devdroid.himnosmetodistas.pakagename.R
 import com.devdroid.himnosmetodistas.pakagename.fragments.HymnDetailsFragment
@@ -16,10 +15,6 @@ class HymnDetailsActivity: AppCompatActivity() {
         setContentView(R.layout.hymn_details_activity)
         setSupportActionBar(detail_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        if(item_detail_container.scrollX == 0){
-            Toast.makeText(this, "Tpo", Toast.LENGTH_SHORT).show()
-        }
 
         if (savedInstanceState == null){
             val fragment = HymnDetailsFragment()
