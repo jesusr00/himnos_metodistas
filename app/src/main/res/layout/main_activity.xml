@@ -27,13 +27,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/hymnListRecyclerview"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:context=".activities.MainActivity"
-            tools:listitem="@layout/hymn_list_template"/>
+        <include layout="@layout/hymn_list_recyclerview"/>
     </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

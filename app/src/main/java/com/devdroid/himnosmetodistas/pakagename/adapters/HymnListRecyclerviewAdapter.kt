@@ -14,7 +14,7 @@ class HymnListRecyclerviewAdapter(
     private val listener: RecyclerviewAdapterListener<HymnTitle>): RecyclerView.Adapter<HymnListRecyclerviewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(listener.getContext()).inflate(R.layout.hymn_list_template, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.hymn_list_template, parent, false)
         return ViewHolder(view)
     }
 
