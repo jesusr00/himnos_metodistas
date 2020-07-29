@@ -34,13 +34,15 @@ class HymnDetailsActivity: AppCompatActivity() {
 
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?) =
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean =
         when(item?.itemId){
             android.R.id.home -> {
-                navigateUpTo(Intent(this, MainActivity::class.java))
+                onBackPressed()
                 true
             }
-            else ->  super.onOptionsItemSelected(item)
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
         }
-    
+
 }
