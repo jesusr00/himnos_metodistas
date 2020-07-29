@@ -35,7 +35,7 @@ class HymnDetailsFragment: Fragment() {
             val fab = activity?.findViewById<FloatingActionButton>(R.id.fab)
             val toolbarLayout = activity?.findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout)
 
-            toolbarLayout?.title =hymn.num.toString() + " " + hymn.title
+            toolbarLayout?.title ="${hymn.num}: ${hymn.title}"
             hymnDetailText.text = hymn.text
             if (hymn.favorite == "true"){
                 fab?.setImageResource(R.drawable.ic_yelow_star_24)
