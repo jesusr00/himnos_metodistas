@@ -14,7 +14,7 @@ import com.devdroid.himnosmetodistas.pakagename.database.asynctasks.LoadHymnTitl
 import com.devdroid.himnosmetodistas.pakagename.listeners.GenericAsyncTaskListener
 import com.devdroid.himnosmetodistas.pakagename.listeners.RecyclerviewAdapterListener
 import com.devdroid.himnosmetodistas.pakagename.models.HymnTitle
-import com.devdroid.himnosmetodistas.pakagename.fragments.HymnDetailsFragment
+import com.devdroid.himnosmetodistas.pakagename.fragments.HymnDetailsFragmentToActivity
 import kotlinx.android.synthetic.main.hymn_list_recyclerview.*
 import kotlinx.android.synthetic.main.main_activity.*
 import java.util.*
@@ -51,14 +51,14 @@ class MainActivity : AppCompatActivity(), GenericAsyncTaskListener<ArrayList<Hym
 
     override fun onClick(item: HymnTitle) {
         if (twoPane){
-            val bundle: Bundle = bundleOf(HymnDetailsFragment.ID_ARG to item.id)
+            val bundle: Bundle = bundleOf(HymnDetailsFragmentToActivity.ID_ARG to item.id)
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.itemDetailContainer, HymnDetailsFragment::class.java, bundle, null)
+                .replace(R.id.itemDetailContainer, HymnDetailsFragmentToActivity::class.java, bundle, null)
                 .commit()
         }else{
             val intent = Intent(this, HymnDetailsActivity::class.java).apply {
-                putExtra(HymnDetailsFragment.ID_ARG, item.id)
+                putExtra(HymnDetailsFragmentToActivity.ID_ARG, item.id)
             }
             startActivity(intent)
         }

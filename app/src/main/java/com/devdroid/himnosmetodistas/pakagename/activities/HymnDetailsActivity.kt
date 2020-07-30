@@ -1,11 +1,10 @@
 package com.devdroid.himnosmetodistas.pakagename.activities
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.devdroid.himnosmetodistas.pakagename.R
-import com.devdroid.himnosmetodistas.pakagename.fragments.HymnDetailsFragment
+import com.devdroid.himnosmetodistas.pakagename.fragments.HymnDetailsFragmentToActivity
 import kotlinx.android.synthetic.main.hymn_details_activity.*
 
 class HymnDetailsActivity: AppCompatActivity() {
@@ -17,12 +16,12 @@ class HymnDetailsActivity: AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (savedInstanceState == null){
-            val fragment = HymnDetailsFragment()
+            val fragment = HymnDetailsFragmentToActivity()
                 .apply {
                 arguments = Bundle().apply {
                     putInt(
-                        HymnDetailsFragment.ID_ARG, intent.getIntExtra(
-                            HymnDetailsFragment.ID_ARG, 0))
+                        HymnDetailsFragmentToActivity.ID_ARG, intent.getIntExtra(
+                            HymnDetailsFragmentToActivity.ID_ARG, 0))
                 }
             }
 
