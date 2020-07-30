@@ -2,11 +2,14 @@ package com.devdroid.himnosmetodistas.pakagename.activities
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import com.devdroid.himnosmetodistas.pakagename.R
 import com.devdroid.himnosmetodistas.pakagename.adapters.HymnListRecyclerviewAdapter
@@ -51,6 +54,8 @@ class MainActivity : AppCompatActivity(), GenericAsyncTaskListener<ArrayList<Hym
 
     override fun onClick(item: HymnTitle) {
         if (twoPane){
+            toolbar.title = "${item.id}: ${item.title}"
+            fab.show()
             val bundle: Bundle = bundleOf(HymnDetailsFragmentToActivity.ID_ARG to item.id)
             supportFragmentManager
                 .beginTransaction()

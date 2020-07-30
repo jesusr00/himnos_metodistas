@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.devdroid.himnosmetodistas.pakagename.R
 import com.devdroid.himnosmetodistas.pakagename.database.DatabaseHelper
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.hymn_details.*
+import kotlinx.android.synthetic.main.hymn_details_activity.*
+import kotlinx.android.synthetic.main.main_activity.*
 
 class HymnDetailsFragmentToActivity: Fragment() {
 
@@ -42,6 +43,7 @@ class HymnDetailsFragmentToActivity: Fragment() {
                 fab?.setImageResource(R.drawable.ic_yelow_star_24)
             }else{
                 fab?.setImageResource(R.drawable.ic_white_star_24)
+
             }
 
             fab?.setOnClickListener {
