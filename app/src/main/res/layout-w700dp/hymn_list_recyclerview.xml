@@ -13,7 +13,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="330dp"
+        android:layout_width="400dp"
         android:layout_height="match_parent"
         android:id="@+id/hymnListRecyclerview"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
