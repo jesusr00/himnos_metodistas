@@ -46,8 +46,15 @@ class MainActivity : AppCompatActivity(), GenericAsyncTaskListener<ArrayList<Hym
     }
 
     override fun onTaskFinished(result: ArrayList<HymnTitle>) {
-        list = result
-        hymnListRecyclerview.adapter = HymnListRecyclerviewAdapter(result, this)
+        if (result.isNotEmpty()){
+            list = result
+            hymnListRecyclerview.adapter = HymnListRecyclerviewAdapter(result, this)
+            loadingLayout.visibility = View.GONE
+        }else{
+            loadingLayout.visibility = View.GONE
+            emptyLayout.visibility = View.VISIBLE
+        }
+
     }
 
     override fun getContext(): Context? = this

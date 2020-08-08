@@ -41,7 +41,7 @@ class DatabaseHelper(context: Context): SQLiteAssetHelper(context, DATABASE_NAME
         return result
     }
 
-    fun isHymnFavorite(id: Int): Boolean{
+    private fun isHymnFavorite(id: Int): Boolean{
         val queryCursor = readableDatabase.query("tHymn", null, "id = $id", null, null, null, null)
         queryCursor.moveToFirst()
         val isTrue = queryCursor.getString(4) == "true"
