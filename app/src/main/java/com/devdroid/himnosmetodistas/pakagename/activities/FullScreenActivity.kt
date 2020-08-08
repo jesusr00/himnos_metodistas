@@ -57,4 +57,10 @@ class FullScreenActivity: AppCompatActivity() {
         showHandler.postDelayed(showRunnable, 4000)
     }
 
+    override fun onPause() {
+        super.onPause()
+
+        val animation = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+        fullScreenLayout.animation = animation
+    }
 }

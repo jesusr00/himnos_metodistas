@@ -11,6 +11,7 @@ class HymnDetailsActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.hymn_details_activity)
         setSupportActionBar(detail_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/introductionLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true"
+        android:src="@drawable/splash_background"
+        android:alpha="0.4"
+        android:contentDescription="@string/image_description" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Esta es la Introduccion"/>
+        android:text="@string/introduction"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+        android:layout_centerInParent="true"/>
 
     <Button
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/fab_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Comenzar"
-        android:layout_below="@id/text"
         android:id="@+id/btn"
-        android:layout_marginTop="@dimen/text_size"
-        android:layout_centerHorizontal="true"/>
+        android:backgroundTint="@color/primaryLightColor"
+        android:textColor="@color/primaryTextColor"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:elevation="16dp"/>
 </RelativeLayout>

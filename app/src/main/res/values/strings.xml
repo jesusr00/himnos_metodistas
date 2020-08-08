@@ -7,4 +7,6 @@
     <string name="search">Buscar</string>
     <string name="loading">Cargando…</string>
     <string name="empty">No hay nada que mostrar aquí</string>
+
+    <string name="introduction">Esta es la introduccion</string>
 </resources>
