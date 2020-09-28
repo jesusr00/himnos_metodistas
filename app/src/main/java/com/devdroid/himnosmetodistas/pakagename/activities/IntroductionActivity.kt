@@ -8,7 +8,6 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.devdroid.himnosmetodistas.pakagename.R
-import kotlinx.android.synthetic.main.fullscreen_activity.*
 import kotlinx.android.synthetic.main.introduction_activity.*
 
 class IntroductionActivity: AppCompatActivity() {

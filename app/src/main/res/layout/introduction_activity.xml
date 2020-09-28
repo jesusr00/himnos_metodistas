@@ -18,8 +18,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/introduction"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
-        android:layout_centerInParent="true"/>
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/text_size_large"
+        android:layout_marginHorizontal="@dimen/text_horizontal_margin"/>
 
     <Button
         android:layout_alignParentBottom="true"
@@ -27,7 +30,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Comenzar"
+        android:text="@string/start"
         android:id="@+id/btn"
         android:backgroundTint="@color/primaryLightColor"
         android:textColor="@color/primaryTextColor"
