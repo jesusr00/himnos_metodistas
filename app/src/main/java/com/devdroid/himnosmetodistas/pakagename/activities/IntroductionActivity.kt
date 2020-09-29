@@ -32,10 +32,10 @@ class IntroductionActivity: AppCompatActivity() {
         sharedPreferences = getSharedPreferences(myPref, Context.MODE_PRIVATE)
 
         btn.setOnClickListener {
-//            sharedPreferences
-//                .edit()
-//                .putBoolean(isAlreadyOpen, true)
-//                .apply()
+            sharedPreferences
+                .edit()
+                .putBoolean(isAlreadyOpen, true)
+                .apply()
 
             startActivity(Intent(this@IntroductionActivity, MainActivity::class.java))
         }
