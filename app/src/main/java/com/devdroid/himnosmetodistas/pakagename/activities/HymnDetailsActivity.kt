@@ -19,12 +19,13 @@ class HymnDetailsActivity: AppCompatActivity() {
         if (savedInstanceState == null){
             val fragment = HymnDetailsFragmentToActivity()
                 .apply {
-                arguments = Bundle().apply {
-                    putInt(
-                        HymnDetailsFragmentToActivity.ID_ARG, intent.getIntExtra(
-                            HymnDetailsFragmentToActivity.ID_ARG, 0))
+                    arguments = Bundle().apply {
+                        putInt(
+                            HymnDetailsFragmentToActivity.ID_ARG,
+                            intent.getIntExtra(HymnDetailsFragmentToActivity.ID_ARG, 0)
+                        )
+                    }
                 }
-            }
 
             supportFragmentManager
                 .beginTransaction()

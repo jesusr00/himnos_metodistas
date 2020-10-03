@@ -12,7 +12,6 @@ import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.hymn_details.*
 import kotlinx.android.synthetic.main.hymn_details_activity.*
-import kotlinx.android.synthetic.main.main_activity.*
 
 class HymnDetailsFragmentToActivity: Fragment() {
 
@@ -34,8 +33,33 @@ class HymnDetailsFragmentToActivity: Fragment() {
         context!!.apply {
             val db = DatabaseHelper(this)
             val hymn = db.selectHymnById(hymnId!!)
-            val fab = activity?.findViewById<FloatingActionButton>(R.id.fab)
-            val toolbarLayout = activity?.findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout)
+            val fab: FloatingActionButton? = activity?.fab
+            val toolbarLayout: CollapsingToolbarLayout? = activity?.toolbar_layout
+
+            /*
+            val playButton: ImageButton? = activity?.playButton
+            val pauseButton: ImageButton? = activity?.pauseButton
+            val stopButton: ImageButton? = activity?.stopButton
+
+            val hymnPath = when(hymnId){
+
+                else -> null
+            }
+
+            var media = MediaPlayer.create(this, hymnPath)
+
+            playButton?.setOnClickListener {
+                media.start()
+            }
+
+            pauseButton?.setOnClickListener {
+                media.pause()
+            }
+            stopButton?.setOnClickListener {
+                media.stop()
+                media = MediaPlayer.create(this, hymnPath)
+            }
+             */
 
             toolbarLayout?.title ="${hymn.num}: ${hymn.title}"
             hymnDetailText.text = hymn.text
@@ -43,7 +67,6 @@ class HymnDetailsFragmentToActivity: Fragment() {
                 fab?.setImageResource(R.drawable.ic_yelow_star_24)
             }else{
                 fab?.setImageResource(R.drawable.ic_white_star_24)
-
             }
 
             fab?.setOnClickListener {
